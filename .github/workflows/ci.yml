@@ -2,33 +2,19 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # Executar quando houver push para a branch 'main'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  CI:
+    runs-on: ubuntu-latest  # Usando o runner mais atualizado do Ubuntu
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - uses: action/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      # Passo 2: Configuração do Node.js 20
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # Versão mais recente do setup-node
         with:
-          node-version: '14'
+          node-version: '16.13.2'
 
-      - name: Cache npm modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
-
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./src
-
-      - name: Hello step
-        run: echo "CI rodando com sucesso!"
-        working-directory: ./src
+   
