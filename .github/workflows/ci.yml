@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest  # Usando o runner mais atualizado do Ubuntu
 
     steps:
-      - uses: action/checkout@v2
+      - uses: actions/checkout@v2
 
       # Passo 2: Configuração do Node.js 20
       - name: Set up Node.js
