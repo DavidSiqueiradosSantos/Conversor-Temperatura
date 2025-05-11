@@ -30,3 +30,9 @@ jobs:
       - name: Finalizar com sucesso
         if: success()
         run: echo "Testes concluídos com sucesso!"
+
+        on:
+  push:
+    branches:
+      - main
+
