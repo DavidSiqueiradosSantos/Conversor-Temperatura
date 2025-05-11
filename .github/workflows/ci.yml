@@ -3,35 +3,35 @@ name: Node.js CI
 on:
   push:
     branches:
-      - main   # Ou a branch que você deseja monitorar
+      - main  # Ou a branch que você deseja monitorar
   pull_request:
     branches:
-      - main   # Ou a branch que você deseja monitorar
+      - main  # Ou a branch que você deseja monitorar
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Definindo o sistema operacional para rodar a ação
+    runs-on: ubuntu-latest  # Sistema operacional para rodar o job
 
     steps:
-      # Passo 1: Verifica o código
+      # 1. Baixar o repositório
       - name: Checkout repository
         uses: actions/checkout@v2  # Baixa o código do repositório
 
-      # Passo 2: Configura o Node.js
+      # 2. Configurar o Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'  # A versão do Node.js que você está usando
 
-      # Passo 3: Instala as dependências
+      # 3. Instalar dependências
       - name: Install dependencies
         run: npm install  # Instala as dependências do projeto
 
-      # Passo 4: Roda os testes
+      # 4. Rodar testes
       - name: Run tests
         run: npm test  # Roda os testes do projeto
 
-      # Passo 5: Mensagem de sucesso
+      # 5. Mensagem de sucesso
       - name: Upload test results
         if: success()
         run: echo "Testes concluídos com sucesso!"
