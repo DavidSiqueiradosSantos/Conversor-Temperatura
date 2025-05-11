@@ -20,12 +20,18 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'  # A versão do Node.js que você está usando
+          
 
       - name: Install dependencies
         run: npm install  # Instala as dependências do projeto
 
       - name: Run tests
         run: npm test  # Roda os testes do projeto
+
+        on:
+  push:
+    branches: [main]
+
 
       - name: Upload test results
         if: success()
