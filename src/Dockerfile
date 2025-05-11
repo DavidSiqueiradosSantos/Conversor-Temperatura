@@ -1,5 +1,5 @@
 # Usar imagem base leve com Node.js
-FROM node:20-alpine
+FROM node:16.13.2
 
 # Criar diretório de trabalho no container
 WORKDIR /app
