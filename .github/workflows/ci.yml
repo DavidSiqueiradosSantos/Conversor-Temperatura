@@ -43,7 +43,7 @@ jobs:
           file: src/Dockerfile
           push: true
           tags: |
-            davidsantos556/aula-conversao-temperatura:v1
+            davidsantos556/aula-conversao-temperatura:${{github.run_number}}
             davidsantos556/aula-conversao-temperatura:latest
       
         
