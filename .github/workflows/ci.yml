@@ -25,7 +25,7 @@ jobs:
           npm install -g mocha
 
       - name: Rodar testes com Mocha
-        run: mocha
+        run: mocha src/conversor.js
         working-directory: ./src
 
       - name: Docker Login
